@@ -2950,3 +2950,114 @@ a {
 .cont{
   padding: 10px;
 }
+
+.destination-card {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5f6fa;
+  border-radius: 24px;
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-10px);
+  border-color: #79d9e8;
+  box-shadow: 0 25px 60px rgba(35, 190, 210, 0.16);
+}
+
+.destination-image {
+  position: relative;
+  height: 360px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.destination-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.45)
+  );
+}
+
+.destination-card:hover .destination-image {
+  transform: scale(1.02);
+}
+
+.destination-number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #159bb0;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.destination-content {
+  position: relative;
+  padding: 28px;
+}
+
+.destination-content h3 {
+  margin: 0 0 10px;
+
+  color: #102a33;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.destination-content p {
+  margin: 0;
+  max-width: 500px;
+
+  color: #667980;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.destination-arrow {
+  position: absolute;
+  left: 28px;
+  bottom: 28px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d9f2f5;
+  border-radius: 50%;
+
+  color: #16a6bb;
+  font-size: 20px;
+
+  transition: all 0.35s ease;
+}
+
+.destination-card:hover .destination-arrow {
+  background: #18aabd;
+  color: white;
+  transform: rotate(-45deg);
+}

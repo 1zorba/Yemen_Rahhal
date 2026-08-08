@@ -101,19 +101,24 @@ const destinations = [
     number: "01",
     title: "سقطرى",
     text: "من الوجهات الطبيعية التي يمكن أن يقترحها النظام للمستخدم.",
+    image:
+      "images/soqatra.webp",
   },
   {
     number: "02",
     title: "إب",
     text: "من الوجهات الطبيعية التي يمكن أن تدخل ضمن الرحلات المقترحة.",
+    image:
+      "images/Ibb.jfif",
   },
   {
     number: "03",
     title: "حراز",
     text: "وجهة يمكن أن يقترحها الذكاء الاصطناعي ضمن برنامج سياحي مناسب.",
+    image:
+      "images/Haraz.jfif",
   },
 ];
-
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -803,31 +808,34 @@ function Home() {
 
             <div className="destination-grid">
 
-              {destinations.map((destination) => (
-                <article
-                  className="destination-card reveal"
-                  key={destination.number}
-                >
+          {destinations.map((destination) => (
+  <article className="destination-card" key={destination.number}>
+    
+    <div
+      className="destination-image"
+      style={{
+        backgroundImage: `url(${destination.image})`,
+      }}
+    >
+      <div className="destination-overlay"></div>
 
-                  <div className="destination-number">
-                    {destination.number}
-                  </div>
+      <span className="destination-number">
+        {destination.number}
+      </span>
+    </div>
 
-                  <div className="destination-symbol">
-                    YT
-                  </div>
+    <div className="destination-content">
+      <h3>{destination.title}</h3>
 
-                  <div>
-                    <h3>{destination.title}</h3>
-                    <p>{destination.text}</p>
-                  </div>
+      <p>{destination.text}</p>
 
-                  <span className="destination-arrow">
-                    ↗
-                  </span>
+      <span className="destination-arrow">
+        ↗
+      </span>
+    </div>
 
-                </article>
-              ))}
+  </article>
+))}
 
             </div>
 
