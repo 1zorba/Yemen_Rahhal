@@ -2,136 +2,137 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 
 const team = [
-  {
-    name: "محمد الشيعاني",
-    role: "فريق المشروع",
-    number: "01",
-  },
-  {
-    name: "وسيم مفتاح",
-    role: "فريق المشروع",
-    number: "02",
-  },
-  {
-    name: "مهند جواح",
-    role: "فريق المشروع",
-    number: "03",
-  },
-  {
-    name: "نور الدين مفتاح",
-    role: "فريق المشروع",
-    number: "04",
-  },
-  {
-    name: "فادي النويره",
-    role: "فريق المشروع",
-    number: "05",
-  },
-  {
-    name: "محمد حميد",
-    role: "فريق المشروع",
-    number: "06",
-  },
-  {
-    name: "بشير كردي",
-    role: "فريق المشروع",
-    number: "07",
-  },
+  "محمد الشيعاني",
+  "وسيم مفتاح",
+  "مهند جواح",
+  "نور الدين مفتاح",
+  "فادي النويره",
+  "محمد حميد",
+  "بشير كردي",
 ];
 
 const services = [
   {
-    icon: "✈",
-    title: "مكاتب السفر",
-    description:
-      "اكتشف خدمات السفر والتأشيرات وحجوزات الطيران والرحلات الخارجية والداخلية من خلال منصة واحدة.",
-    tag: "TRAVEL",
-  },
-  {
-    icon: "⌂",
-    title: "الفنادق والإقامة",
-    description:
-      "ابحث عن أماكن الإقامة المناسبة، قارن الخيارات والأسعار واستكشف التقييمات قبل اتخاذ قرارك.",
-    tag: "STAY",
-  },
-  {
-    icon: "◈",
-    title: "تأجير السيارات",
-    description:
-      "احصل على وسيلة النقل المناسبة لرحلتك، سواء كنت تبحث عن سيارة مع سائق أو بدون سائق.",
-    tag: "DRIVE",
-  },
-  {
-    icon: "✦",
-    title: "المرشد السياحي",
-    description:
-      "تواصل مع مرشدين محليين وخارجيين لتنظيم رحلتك واكتشاف الأماكن بطريقة أكثر متعة.",
-    tag: "GUIDE",
-  },
-  {
-    icon: "✚",
-    title: "السياحة العلاجية",
-    description:
-      "نظم رحلتك العلاجية من خلال الوصول إلى المستشفيات والأطباء والمترجمين وخدمات النقل والإقامة.",
-    tag: "MEDICAL",
-  },
-  {
-    icon: "◎",
-    title: "الشحن والخدمات",
-    description:
-      "الوصول إلى خدمات الشحن والتصدير وغيرها من الخدمات المساندة المرتبطة بالسفر والتنقل.",
-    tag: "SERVICES",
-  },
-];
-
-const steps = [
-  {
     number: "01",
-    title: "أخبرنا عن رحلتك",
-    text: "حدد وجهتك وميزانيتك ومدة الرحلة وعدد الأشخاص واهتماماتك.",
+    title: "مكاتب السفر والخدمات",
+    description:
+      "التأشيرات والفيز، حجوزات الطيران، السفر الخارجي، العمرة والحج، الرحلات الداخلية، والشحن والتصدير.",
   },
   {
     number: "02",
-    title: "يفهم النظام احتياجاتك",
-    text: "يقوم النظام بتحليل المعلومات لبناء تصور يناسب احتياجاتك.",
+    title: "الفنادق والإقامة",
+    description:
+      "البحث عن الفنادق، مقارنة الأسعار، التقييمات، والحجز الإلكتروني.",
   },
   {
     number: "03",
-    title: "احصل على اقتراحات ذكية",
-    text: "يقترح لك الوجهات والإقامة والنقل والأنشطة المناسبة.",
+    title: "تأجير السيارات",
+    description:
+      "سيارات مع أو بدون سائق، مقارنة الأسعار، الحجز المسبق، وتقييم الشركات.",
   },
   {
     number: "04",
-    title: "ابدأ رحلتك",
-    text: "تحصل على تصور متكامل يساعدك على إدارة رحلتك بسهولة.",
+    title: "المرشد السياحي",
+    description:
+      "مرشدون محليون وخارجيون للمساعدة في اختيار الوجهات وتنظيم البرامج السياحية والترجمة والحجز.",
+  },
+  {
+    number: "05",
+    title: "السياحة الذكية بالذكاء الاصطناعي",
+    description:
+      "تحليل نوع السياحة والميزانية ومدة الرحلة وعدد الأشخاص والاهتمامات، ثم اقتراح رحلة متكاملة.",
+  },
+  {
+    number: "06",
+    title: "السياحة العلاجية",
+    description:
+      "المستشفيات، الأطباء، المترجمون الطبيون، الفنادق، النقل، وحجز المواعيد.",
+  },
+];
+
+const goals = [
+  "إنشاء منصة يمنية ذكية لخدمات السفر والسياحة.",
+  "تسهيل تنظيم الرحلات الداخلية والخارجية.",
+  "دعم السياحة اليمنية وإبراز المعالم السياحية.",
+  "تسهيل الرحلات العلاجية خارج اليمن.",
+  "ربط المسافرين بمقدمي الخدمات الموثوقين.",
+  "دعم التحول الرقمي في قطاع السفر.",
+];
+
+const aiSteps = [
+  {
+    number: "01",
+    title: "نوع السياحة",
+    text: "يحدد المستخدم نوع السياحة التي يرغب بها.",
+  },
+  {
+    number: "02",
+    title: "الميزانية",
+    text: "يحدد الميزانية المتاحة للرحلة.",
+  },
+  {
+    number: "03",
+    title: "مدة الرحلة",
+    text: "يحدد مدة الرحلة وعدد الأشخاص.",
+  },
+  {
+    number: "04",
+    title: "الاهتمامات",
+    text: "يحدد اهتماماته والأنشطة التي يرغب بها.",
+  },
+  {
+    number: "05",
+    title: "اقتراح الرحلة",
+    text: "يقترح النظام رحلة متكاملة تناسب احتياجاته.",
   },
 ];
 
 const technologies = [
   {
     name: "Flutter",
-    text: "تطبيق الهاتف",
+    description: "تطبيق الهاتف",
   },
   {
     name: "React.js",
-    text: "موقع الويب",
+    description: "موقع الويب",
   },
   {
     name: "Laravel",
-    text: "Backend",
+    description: "Backend",
   },
   {
     name: "MySQL",
-    text: "قاعدة البيانات",
+    description: "قاعدة البيانات",
   },
   {
-    name: "AI",
-    text: "الذكاء الاصطناعي",
+    name: "Google Maps API",
+    description: "الخرائط",
   },
   {
     name: "Firebase",
-    text: "الإشعارات",
+    description: "الإشعارات",
   },
+  {
+    name: "OpenAI API / Gemini",
+    description: "الذكاء الاصطناعي",
+  },
+];
+
+const profitModels = [
+  "اشتراكات مكاتب السفر ومقدمي الخدمات.",
+  "عمولات على الحجوزات.",
+  "الإعلانات داخل التطبيق.",
+  "الحسابات المميزة.",
+  "الشراكات مع الفنادق والمستشفيات.",
+];
+
+const adminFeatures = [
+  "إدارة المستخدمين",
+  "اعتماد مقدمي الخدمات",
+  "إدارة الحجوزات",
+  "متابعة التقييمات",
+  "إدارة المحتوى السياحي",
+  "التقارير والإحصائيات",
 ];
 
 function Home() {
@@ -140,18 +141,18 @@ function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 30);
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
-
   const scrollToSection = (id) => {
-    closeMenu();
+    setMenuOpen(false);
 
     const element = document.getElementById(id);
 
@@ -164,19 +165,17 @@ function Home() {
   };
 
   return (
-    <div className="yemen-app" dir="rtl">
+    <div className="yemen-tarhal">
+
       {/* ================= NAVBAR ================= */}
       <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
-        <div className="container navbar-inner">
+        <div className="container navbar-container">
+
           <button
             className="brand"
             onClick={() => scrollToSection("home")}
-            aria-label="يمن ترحال"
           >
-            <span className="brand-symbol">
-              <span className="brand-symbol-ring"></span>
-              <span className="brand-symbol-plane">✦</span>
-            </span>
+            <span className="brand-icon">YT</span>
 
             <span className="brand-text">
               <strong>يمن ترحال</strong>
@@ -185,26 +184,36 @@ function Home() {
           </button>
 
           <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
-            <button onClick={() => scrollToSection("home")}>الرئيسية</button>
-            <button onClick={() => scrollToSection("about")}>عن المشروع</button>
+            <button onClick={() => scrollToSection("home")}>
+              الرئيسية
+            </button>
+
+            <button onClick={() => scrollToSection("about")}>
+              عن المشروع
+            </button>
+
             <button onClick={() => scrollToSection("services")}>
               الخدمات
             </button>
+
             <button onClick={() => scrollToSection("ai")}>
               السياحة الذكية
             </button>
+
             <button onClick={() => scrollToSection("technology")}>
               التقنيات
             </button>
-            <button onClick={() => scrollToSection("team")}>الفريق</button>
+
+            <button onClick={() => scrollToSection("team")}>
+              الفريق
+            </button>
           </nav>
 
           <button
-            className="nav-cta"
+            className="nav-button"
             onClick={() => scrollToSection("vision")}
           >
             اكتشف المشروع
-            <span>↗</span>
           </button>
 
           <button
@@ -216,810 +225,878 @@ function Home() {
             <span></span>
             <span></span>
           </button>
+
         </div>
       </header>
 
       {/* ================= HERO ================= */}
       <main>
+
         <section id="home" className="hero">
-          <div className="hero-image"></div>
-          <div className="hero-overlay"></div>
-          <div className="hero-glow"></div>
+          <div className="container hero-container">
 
-          <div className="hero-lines">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+            <div className="hero-content">
 
-          <div className="container hero-content">
-            <div className="hero-badge">
-              <span className="badge-dot"></span>
-              مشروع تخرج · منصة سفر وسياحة ذكية
-            </div>
-
-            <h1>
-              اكتشف اليمن
-              <br />
-              <em>بطريقة مختلفة.</em>
-            </h1>
-
-            <p className="hero-description">
-              <strong>يمن ترحال</strong> منصة رقمية ذكية تجمع خدمات السفر
-              والسياحة والعلاج في تجربة واحدة، وتستخدم الذكاء الاصطناعي
-              لمساعدتك على بناء رحلة تناسبك.
-            </p>
-
-            <div className="hero-actions">
-              <button
-                className="primary-btn"
-                onClick={() => scrollToSection("about")}
-              >
-                <span>اكتشف يمن ترحال</span>
-                <i>←</i>
-              </button>
-
-              <button
-                className="text-btn"
-                onClick={() => scrollToSection("services")}
-              >
-                استكشف الخدمات
-                <span>↓</span>
-              </button>
-            </div>
-
-            <div className="hero-bottom">
-              <div className="hero-location">
-                <span className="location-icon">⌖</span>
-                <div>
-                  <small>انطلق من هنا</small>
-                  <strong>اليمن · العالم</strong>
-                </div>
+              <div className="hero-label">
+                <span></span>
+                مشروع تخرج
               </div>
 
-              <div className="hero-scroll">
-                <span>SCROLL TO EXPLORE</span>
-                <div className="scroll-line"></div>
-              </div>
-            </div>
-          </div>
-        </section>
+              <h1>
+                يمن <span>ترحال</span>
+              </h1>
 
-        {/* ================= INTRO ================= */}
-        <section className="intro-section">
-          <div className="container intro-grid">
-            <div className="intro-number">
-              <span>01</span>
-              <div></div>
-            </div>
-
-            <div className="intro-heading">
-              <span className="eyebrow">A NEW WAY TO TRAVEL</span>
               <h2>
-                رحلة واحدة،
+                منصة رقمية ذكية
                 <br />
-                <span>منصة واحدة.</span>
+                لخدمات السفر والسياحة والعلاج
               </h2>
-            </div>
-
-            <div className="intro-text">
-              <p>
-                في عالم تتوزع فيه خدمات السفر بين عشرات المواقع والمكاتب،
-                يأتي <strong>يمن ترحال</strong> ليجمع التجربة كاملة في مكان
-                واحد.
-              </p>
 
               <p>
-                من التخطيط واكتشاف الوجهات، إلى اختيار الفندق والسيارة والمرشد
-                والخدمات العلاجية، نصنع تجربة رقمية أكثر سهولة ووضوحًا.
+                يمن ترحال هو منصة رقمية ذكية
+                <strong> تطبيق جوال + موقع ويب </strong>
+                تهدف إلى جمع جميع خدمات السفر والسياحة والعلاج
+                داخل اليمن وخارجها في مكان واحد.
               </p>
 
-              <button
-                className="arrow-link"
-                onClick={() => scrollToSection("about")}
-              >
-                <span>تعرف على الفكرة</span>
-                <i>←</i>
-              </button>
+              <div className="hero-actions">
+                <button
+                  className="primary-button"
+                  onClick={() => scrollToSection("about")}
+                >
+                  تعرف على المشروع
+                  <span>←</span>
+                </button>
+
+                <button
+                  className="secondary-button"
+                  onClick={() => scrollToSection("services")}
+                >
+                  خدمات المنصة
+                </button>
+              </div>
+
             </div>
+
+            <div className="hero-card">
+
+              <div className="hero-card-top">
+                <span>YEMEN</span>
+                <span>2026</span>
+              </div>
+
+              <div className="hero-logo">
+                <span>YT</span>
+              </div>
+
+              <h3>يمن ترحال</h3>
+
+              <p>
+                رحلة واحدة تبدأ من التخطيط
+                وتنتهي بتجربة متكاملة.
+              </p>
+
+              <div className="hero-card-line"></div>
+
+              <small>
+                TRAVEL · TOURISM · MEDICAL
+              </small>
+
+            </div>
+
           </div>
         </section>
 
         {/* ================= ABOUT ================= */}
-        <section id="about" className="about-section section">
+        <section id="about" className="section about-section">
+
           <div className="container">
-            <div className="section-heading">
+
+            <div className="section-header">
+
               <div>
-                <span className="eyebrow">ABOUT THE PROJECT</span>
+                <span className="section-number">01</span>
+                <span className="section-label">
+                  نبذة عن المشروع
+                </span>
+
                 <h2>
-                  أكثر من مجرد
+                  رحلة واحدة،
                   <br />
-                  <span>تطبيق حجوزات.</span>
+                  <span>منصة واحدة.</span>
                 </h2>
               </div>
 
               <p>
-                يمن ترحال هو تصور لمنصة وطنية ذكية تربط المسافر بمختلف الجهات
-                والخدمات المرتبطة بالسفر والسياحة والعلاج، مع تجربة رقمية
-                حديثة مصممة حول احتياجات المستخدم.
+                يمن ترحال هو منصة رقمية ذكية تهدف إلى جمع جميع خدمات
+                السفر والسياحة والعلاج داخل اليمن وخارجها في مكان واحد.
+                تساعد المنصة المستخدم على التخطيط لرحلته واختيار
+                الخدمات المناسبة وإتمام الحجوزات بسهولة.
               </p>
+
             </div>
 
-            <div className="about-cards">
-              <article className="about-card about-card-large">
-                <div className="card-number">01</div>
-                <div className="card-icon">✦</div>
-                <h3>منصة موحدة</h3>
-                <p>
-                  بدل التنقل بين عدة مكاتب ومواقع وصفحات، يجد المستخدم خدمات
-                  رحلته الأساسية ضمن منظومة واحدة.
-                </p>
-              </article>
+            <div className="about-content">
 
-              <article className="about-card">
-                <div className="card-number">02</div>
-                <div className="card-icon">◎</div>
-                <h3>تجربة شخصية</h3>
-                <p>
-                  تتشكل الاقتراحات وفق ميزانية المستخدم واهتماماته ومدة الرحلة
-                  وعدد المسافرين.
-                </p>
-              </article>
+              <div className="about-main-card">
+                <span className="card-label">
+                  فكرة المشروع
+                </span>
 
-              <article className="about-card">
-                <div className="card-number">03</div>
-                <div className="card-icon">◇</div>
-                <h3>سياحة أذكى</h3>
+                <h3>
+                  جميع خدمات رحلتك
+                  <br />
+                  في مكان واحد.
+                </h3>
+
                 <p>
-                  دمج الذكاء الاصطناعي لمساعدة المستخدم في اكتشاف الخيارات
-                  الأنسب له.
+                  تقوم فكرة المشروع على إنشاء نظام يربط المسافرين
+                  بجميع الجهات المرتبطة بالسفر، مثل مكاتب السفر
+                  والتأشيرات، الفنادق، شركات تأجير السيارات،
+                  المرشدين السياحيين، المترجمين، المستشفيات
+                  وشركات الشحن.
                 </p>
-              </article>
+              </div>
+
+              <div className="about-side">
+
+                <div className="simple-card">
+                  <span>01</span>
+                  <h3>التخطيط</h3>
+                  <p>
+                    التخطيط للرحلة من خلال منصة واحدة.
+                  </p>
+                </div>
+
+                <div className="simple-card">
+                  <span>02</span>
+                  <h3>الاختيار</h3>
+                  <p>
+                    اختيار الخدمات المناسبة لاحتياجات المستخدم.
+                  </p>
+                </div>
+
+                <div className="simple-card">
+                  <span>03</span>
+                  <h3>الحجز</h3>
+                  <p>
+                    إتمام الحجوزات بسهولة من خلال المنصة.
+                  </p>
+                </div>
+
+              </div>
+
             </div>
+
           </div>
         </section>
 
-        {/* ================= PROBLEM / SOLUTION ================= */}
-        <section className="problem-section section">
-          <div className="container problem-grid">
-            <div className="problem-visual">
-              <div className="visual-image"></div>
-              <div className="visual-label">
-                <span>YEMEN</span>
-                <strong>رحلة تبدأ بفكرة</strong>
+        {/* ================= PROBLEM ================= */}
+        <section className="section problem-section">
+
+          <div className="container">
+
+            <div className="section-header">
+
+              <div>
+                <span className="section-number">02</span>
+                <span className="section-label">
+                  المشكلة والحل
+                </span>
+
+                <h2>
+                  لماذا نحتاج
+                  <br />
+                  <span>يمن ترحال؟</span>
+                </h2>
               </div>
 
-              <div className="floating-stamp">
-                <span>YT</span>
-                <small>EXPLORE<br />MORE</small>
-              </div>
-            </div>
-
-            <div className="problem-content">
-              <span className="eyebrow">THE PROBLEM</span>
-              <h2>
-                لماذا نحتاج
-                <br />
-                <span>يمن ترحال؟</span>
-              </h2>
-
-              <p className="lead">
-                خدمات السفر موجودة، لكن الوصول إليها غالبًا ما يكون مشتتًا
-                بين جهات مختلفة، مما يجعل التخطيط للرحلة أكثر تعقيدًا.
+              <p>
+                يعاني المسافر في اليمن من عدة مشاكل مرتبطة بتشتت
+                خدمات السفر وصعوبة الوصول إليها وتنظيم الرحلات.
               </p>
 
-              <div className="problem-list">
-                <div>
-                  <span>01</span>
-                  <p>تشتت خدمات السفر بين جهات متعددة.</p>
-                </div>
+            </div>
 
-                <div>
-                  <span>02</span>
-                  <p>صعوبة الوصول إلى خدمات موثوقة.</p>
-                </div>
+            <div className="problem-grid">
 
-                <div>
-                  <span>03</span>
-                  <p>الحاجة للتواصل مع أكثر من جهة.</p>
-                </div>
+              <div className="problem-box">
 
-                <div>
-                  <span>04</span>
-                  <p>غياب نظام ذكي يساعد على اتخاذ القرار.</p>
-                </div>
+                <h3>المشكلة</h3>
+
+                <ul>
+                  <li>
+                    <span>01</span>
+                    تشتت خدمات السفر بين جهات متعددة.
+                  </li>
+
+                  <li>
+                    <span>02</span>
+                    صعوبة الوصول إلى خدمات موثوقة.
+                  </li>
+
+                  <li>
+                    <span>03</span>
+                    عدم وجود منصة تجمع جميع الخدمات.
+                  </li>
+
+                  <li>
+                    <span>04</span>
+                    صعوبة تنظيم الرحلات السياحية والعلاجية.
+                  </li>
+
+                  <li>
+                    <span>05</span>
+                    الحاجة للتواصل مع أكثر من جهة.
+                  </li>
+
+                  <li>
+                    <span>06</span>
+                    عدم وجود نظام ذكي يساعد المستخدم.
+                  </li>
+                </ul>
+
               </div>
 
               <div className="solution-box">
-                <div className="solution-icon">✦</div>
-                <div>
-                  <small>الحل</small>
-                  <strong>تجميع الرحلة بالكامل في مكان واحد.</strong>
+
+                <div className="solution-icon">
+                  ✓
                 </div>
+
+                <h3>الحل</h3>
+
+                <p>
+                  توفير منصة رقمية موحدة تجمع خدمات السفر والسياحة
+                  والعلاج، مع مساعد ذكي يعتمد على الذكاء الاصطناعي
+                  لتحليل احتياجات المستخدم واقتراح الخيارات المناسبة.
+                </p>
+
+                <div className="solution-items">
+
+                  <span>الوجهات المناسبة</span>
+                  <span>الفنادق</span>
+                  <span>وسائل النقل</span>
+                  <span>المرشدين السياحيين</span>
+                  <span>البرامج السياحية</span>
+                  <span>التكلفة المتوقعة</span>
+
+                </div>
+
               </div>
+
             </div>
+
+          </div>
+        </section>
+
+        {/* ================= GOALS ================= */}
+        <section className="section goals-section">
+
+          <div className="container">
+
+            <div className="center-heading">
+              <span className="section-number">03</span>
+              <span className="section-label">
+                أهداف المشروع
+              </span>
+
+              <h2>
+                أهداف
+                <span> يمن ترحال</span>
+              </h2>
+            </div>
+
+            <div className="goals-grid">
+
+              {goals.map((goal, index) => (
+                <div className="goal-card" key={goal}>
+
+                  <span>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <p>{goal}</p>
+
+                </div>
+              ))}
+
+            </div>
+
           </div>
         </section>
 
         {/* ================= SERVICES ================= */}
-        <section id="services" className="services-section section">
+        <section id="services" className="section services-section">
+
           <div className="container">
-            <div className="section-heading services-heading">
+
+            <div className="section-header">
+
               <div>
-                <span className="eyebrow">ONE PLATFORM · MANY SERVICES</span>
+                <span className="section-number">04</span>
+                <span className="section-label">
+                  أقسام النظام
+                </span>
+
                 <h2>
-                  كل ما تحتاجه
+                  خدمات
                   <br />
-                  <span>لرحلتك.</span>
+                  <span>متكاملة.</span>
                 </h2>
               </div>
 
-              <div className="heading-side">
-                <span>06</span>
-                <p>مجالات رئيسية</p>
-              </div>
+              <p>
+                تجمع المنصة مجموعة من الخدمات المرتبطة بالسفر
+                والسياحة والعلاج في مكان واحد.
+              </p>
+
             </div>
 
             <div className="services-grid">
-              {services.map((service, index) => (
-                <article className="service-card" key={service.title}>
-                  <div className="service-top">
-                    <span className="service-index">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="service-tag">{service.tag}</span>
-                  </div>
 
-                  <div className="service-icon">{service.icon}</div>
+              {services.map((service) => (
+                <article
+                  className="service-card"
+                  key={service.number}
+                >
+
+                  <span className="service-number">
+                    {service.number}
+                  </span>
 
                   <h3>{service.title}</h3>
 
                   <p>{service.description}</p>
 
-                  <div className="service-arrow">↗</div>
+                  <span className="service-arrow">
+                    ↗
+                  </span>
+
                 </article>
               ))}
+
             </div>
+
           </div>
         </section>
 
-        {/* ================= AI SECTION ================= */}
-        <section id="ai" className="ai-section">
-          <div className="ai-background"></div>
-          <div className="ai-grid-pattern"></div>
+        {/* ================= AI ================= */}
+        <section id="ai" className="section ai-section">
 
-          <div className="container ai-container">
-            <div className="ai-content">
-              <div className="ai-label">
-                <span className="ai-pulse"></span>
-                POWERED BY ARTIFICIAL INTELLIGENCE
-              </div>
-
-              <h2>
-                رحلتك ليست
-                <br />
-                <span>مثل أي رحلة.</span>
-              </h2>
-
-              <p>
-                لأن كل مسافر لديه قصة مختلفة، يستخدم يمن ترحال الذكاء
-                الاصطناعي لفهم تفضيلاتك وبناء اقتراحات سفر مخصصة لك.
-              </p>
-
-              <button
-                className="ai-btn"
-                onClick={() => scrollToSection("how-it-works")}
-              >
-                <span>كيف تعمل السياحة الذكية؟</span>
-                <i>←</i>
-              </button>
-            </div>
-
-            <div className="ai-interface">
-              <div className="ai-window">
-                <div className="ai-window-header">
-                  <div className="ai-status">
-                    <span></span>
-                    Yemen Tarhal AI
-                  </div>
-
-                  <div className="window-dots">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                  </div>
-                </div>
-
-                <div className="ai-window-body">
-                  <div className="ai-message">
-                    <small>مرحبًا بك في يمن ترحال</small>
-                    <strong>أخبرني، كيف تريد أن تكون رحلتك؟</strong>
-                  </div>
-
-                  <div className="ai-options">
-                    <div>
-                      <span>◈</span>
-                      طبيعة ومغامرة
-                    </div>
-
-                    <div>
-                      <span>◇</span>
-                      تاريخ وثقافة
-                    </div>
-
-                    <div>
-                      <span>✦</span>
-                      رحلة عائلية
-                    </div>
-
-                    <div>
-                      <span>✚</span>
-                      رحلة علاجية
-                    </div>
-                  </div>
-
-                  <div className="ai-input">
-                    <span>اختر اهتمامك...</span>
-                    <button>→</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="ai-orbit orbit-one"></div>
-              <div className="ai-orbit orbit-two"></div>
-
-              <div className="ai-star star-one">✦</div>
-              <div className="ai-star star-two">✧</div>
-            </div>
-          </div>
-        </section>
-
-        {/* ================= HOW IT WORKS ================= */}
-        <section id="how-it-works" className="steps-section section">
           <div className="container">
-            <div className="section-heading">
+
+            <div className="ai-header">
+
               <div>
-                <span className="eyebrow">HOW IT WORKS</span>
+                <span className="section-number">05</span>
+                <span className="section-label">
+                  السياحة الذكية
+                </span>
+
                 <h2>
-                  من الفكرة
+                  الذكاء الاصطناعي
                   <br />
-                  <span>إلى الرحلة.</span>
+                  <span>يفهم رحلتك.</span>
                 </h2>
               </div>
 
               <p>
-                تجربة بسيطة تبدأ بمجموعة من الأسئلة وتنتهي بتصور متكامل
-                لرحلتك.
+                تعتبر السياحة الذكية أهم ميزة في المشروع، حيث يقوم
+                النظام بسؤال المستخدم عن احتياجاته ثم يقترح له
+                رحلة متكاملة.
               </p>
+
             </div>
 
-            <div className="steps-line">
-              {steps.map((step, index) => (
-                <article className="step-card" key={step.number}>
-                  <div className="step-number">{step.number}</div>
+            <div className="ai-process">
 
-                  {index !== steps.length - 1 && (
-                    <div className="step-connector"></div>
-                  )}
+              {aiSteps.map((step) => (
+                <div className="ai-step" key={step.number}>
+
+                  <span className="ai-step-number">
+                    {step.number}
+                  </span>
 
                   <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* ================= DESTINATIONS ================= */}
-        <section className="destinations-section">
-          <div className="container">
-            <div className="destinations-header">
+                  <p>{step.text}</p>
+
+                </div>
+              ))}
+
+            </div>
+
+            <div className="ai-example">
+
               <div>
-                <span className="eyebrow">DISCOVER YEMEN</span>
-                <h2>
-                  وجهات
-                  <br />
-                  <span>تستحق أن تُكتشف.</span>
-                </h2>
+                <span>مثال</span>
+
+                <h3>
+                  السياحة الطبيعية
+                </h3>
               </div>
 
               <p>
-                اليمن ليس مجرد نقطة على الخريطة؛ إنه مجموعة من القصص والمناظر
-                والثقافات التي تستحق أن تصل إلى العالم.
+                إذا اختار المستخدم السياحة الطبيعية، يقترح له
+                الذكاء الاصطناعي أفضل الوجهات الطبيعية مثل
+                سقطرى وإب وحراز، مع الفنادق والسيارات والبرنامج
+                اليومي المناسب.
               </p>
+
             </div>
 
-            <div className="destination-grid">
-              <article className="destination destination-large">
-                <div className="destination-image socotra"></div>
-                <div className="destination-overlay"></div>
-                <div className="destination-content">
-                  <small>01 · ISLAND</small>
-                  <h3>سقطرى</h3>
-                  <p>جزيرة الأساطير والطبيعة الفريدة</p>
-                </div>
-              </article>
-
-              <article className="destination">
-                <div className="destination-image sanaa"></div>
-                <div className="destination-overlay"></div>
-                <div className="destination-content">
-                  <small>02 · HERITAGE</small>
-                  <h3>صنعاء القديمة</h3>
-                  <p>تاريخ معماري لا يشبه أي مكان</p>
-                </div>
-              </article>
-
-              <article className="destination">
-                <div className="destination-image ibb"></div>
-                <div className="destination-overlay"></div>
-                <div className="destination-content">
-                  <small>03 · NATURE</small>
-                  <h3>إب</h3>
-                  <p>الخضرة والجبال والضباب</p>
-                </div>
-              </article>
-
-              <article className="destination destination-wide">
-                <div className="destination-image haraz"></div>
-                <div className="destination-overlay"></div>
-                <div className="destination-content">
-                  <small>04 · MOUNTAINS</small>
-                  <h3>حراز</h3>
-                  <p>قرى معلقة بين الجبال</p>
-                </div>
-              </article>
-            </div>
           </div>
         </section>
 
-        {/* ================= MEDICAL TOURISM ================= */}
-        <section className="medical-section section">
+        {/* ================= MEDICAL ================= */}
+        <section className="section medical-section">
+
           <div className="container medical-grid">
-            <div className="medical-content">
-              <span className="eyebrow">MEDICAL TOURISM</span>
+
+            <div>
+
+              <span className="section-number">06</span>
+              <span className="section-label">
+                السياحة العلاجية
+              </span>
 
               <h2>
-                عندما تكون الرحلة
+                عندما تكون
                 <br />
-                <span>من أجل الشفاء.</span>
+                الرحلة
+                <span> للعلاج.</span>
               </h2>
 
               <p>
-                يهدف يمن ترحال إلى تسهيل الرحلات العلاجية خارج اليمن عبر جمع
-                الخدمات التي يحتاجها المريض في تجربة واحدة، بدءًا من اختيار
-                المستشفى وحتى الإقامة والنقل والمساعدة أثناء الرحلة.
+                تساعد المنصة المرضى في تنظيم رحلات العلاج من خلال
+                توفير المستشفيات والأطباء والمترجمين الطبيين
+                والفنادق والنقل وحجز المواعيد.
               </p>
 
-              <div className="medical-features">
-                <div>
-                  <span>+</span>
-                  <strong>المستشفيات</strong>
-                </div>
-
-                <div>
-                  <span>+</span>
-                  <strong>الأطباء</strong>
-                </div>
-
-                <div>
-                  <span>+</span>
-                  <strong>المترجمون الطبيون</strong>
-                </div>
-
-                <div>
-                  <span>+</span>
-                  <strong>النقل والإقامة</strong>
-                </div>
-              </div>
             </div>
 
-            <div className="medical-visual">
-              <div className="medical-circle">
-                <div className="medical-inner">
-                  <span>YT</span>
-                  <small>CARE · TRAVEL</small>
-                </div>
-              </div>
+            <div className="medical-list">
 
-              <div className="medical-card card-a">
+              <div>
                 <span>01</span>
-                <strong>Hospital</strong>
+                <strong>المستشفيات</strong>
               </div>
 
-              <div className="medical-card card-b">
+              <div>
                 <span>02</span>
-                <strong>Translation</strong>
+                <strong>الأطباء</strong>
               </div>
 
-              <div className="medical-card card-c">
+              <div>
                 <span>03</span>
-                <strong>Transport</strong>
+                <strong>المترجمين الطبيين</strong>
               </div>
+
+              <div>
+                <span>04</span>
+                <strong>الفنادق</strong>
+              </div>
+
+              <div>
+                <span>05</span>
+                <strong>النقل</strong>
+              </div>
+
+              <div>
+                <span>06</span>
+                <strong>حجز المواعيد</strong>
+              </div>
+
             </div>
+
+          </div>
+        </section>
+
+        {/* ================= ADMIN ================= */}
+        <section className="section admin-section">
+
+          <div className="container">
+
+            <div className="center-heading">
+
+              <span className="section-number">07</span>
+              <span className="section-label">
+                إدارة النظام
+              </span>
+
+              <h2>
+                لوحة تحكم
+                <span> متكاملة.</span>
+              </h2>
+
+            </div>
+
+            <div className="admin-grid">
+
+              {adminFeatures.map((item, index) => (
+                <div className="admin-card" key={item}>
+
+                  <span>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <h3>{item}</h3>
+
+                </div>
+              ))}
+
+            </div>
+
           </div>
         </section>
 
         {/* ================= TECHNOLOGY ================= */}
-        <section id="technology" className="technology-section section">
+        <section id="technology" className="section technology-section">
+
           <div className="container">
-            <div className="tech-heading">
+
+            <div className="section-header">
+
               <div>
-                <span className="eyebrow">THE TECHNOLOGY</span>
+                <span className="section-number">08</span>
+                <span className="section-label">
+                  التقنيات المستخدمة
+                </span>
+
                 <h2>
-                  فكرة كبيرة،
+                  مبني على
                   <br />
-                  <span>بتقنيات حديثة.</span>
+                  <span>تقنيات حديثة.</span>
                 </h2>
               </div>
 
               <p>
-                يعتمد المشروع على مجموعة من التقنيات الحديثة لبناء تجربة
-                متكاملة قابلة للتوسع مستقبلًا.
+                يعتمد المشروع على مجموعة من التقنيات لبناء تطبيق
+                الهاتف وموقع الويب والـ Backend وقاعدة البيانات
+                والخرائط والإشعارات والذكاء الاصطناعي.
               </p>
+
             </div>
 
             <div className="technology-grid">
+
               {technologies.map((technology, index) => (
-                <div className="technology-card" key={technology.name}>
-                  <span className="tech-index">
+                <div
+                  className="technology-card"
+                  key={technology.name}
+                >
+
+                  <span>
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <div className="tech-symbol">
-                    {technology.name === "AI" ? "✦" : "</>"}
-                  </div>
-
                   <h3>{technology.name}</h3>
-                  <p>{technology.text}</p>
+
+                  <p>{technology.description}</p>
+
                 </div>
               ))}
+
             </div>
+
+          </div>
+        </section>
+
+        {/* ================= PROFIT ================= */}
+        <section className="section profit-section">
+
+          <div className="container profit-grid">
+
+            <div>
+
+              <span className="section-number">09</span>
+              <span className="section-label">
+                نموذج الربح
+              </span>
+
+              <h2>
+                كيف يحقق
+                <br />
+                <span>المشروع أرباحًا؟</span>
+              </h2>
+
+            </div>
+
+            <div className="profit-list">
+
+              {profitModels.map((item, index) => (
+                <div key={item}>
+
+                  <span>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <p>{item}</p>
+
+                </div>
+              ))}
+
+            </div>
+
           </div>
         </section>
 
         {/* ================= VALUE ================= */}
-        <section className="value-section">
-          <div className="container value-container">
-            <div className="value-copy">
-              <span className="eyebrow">OUR VALUE</span>
-              <h2>
-                نبني تجربة
-                <br />
-                <span>تتجاوز الحجز.</span>
-              </h2>
+        <section className="section value-section">
+
+          <div className="container">
+
+            <div className="value-box">
+
+              <div>
+
+                <span className="section-number">10</span>
+                <span className="section-label">
+                  القيمة المضافة
+                </span>
+
+                <h2>
+                  أكثر من مجرد
+                  <br />
+                  <span>تطبيق حجوزات.</span>
+                </h2>
+
+              </div>
+
+              <p>
+                يتميز يمن ترحال بأنه ليس مجرد تطبيق حجوزات، بل منصة
+                ذكية متكاملة تجمع رحلة المسافر بالكامل في مكان واحد،
+                وتستخدم الذكاء الاصطناعي لتقديم تجربة سفر شخصية
+                وسهلة، مما يساهم في تطوير قطاع السياحة والسفر في اليمن.
+              </p>
+
             </div>
 
-            <div className="value-points">
-              <div className="value-point">
-                <span>01</span>
-                <div>
-                  <h3>تجميع الخدمات</h3>
-                  <p>كل احتياجات الرحلة ضمن منظومة واحدة.</p>
-                </div>
-              </div>
-
-              <div className="value-point">
-                <span>02</span>
-                <div>
-                  <h3>تجربة شخصية</h3>
-                  <p>اقتراحات مبنية على احتياجات كل مستخدم.</p>
-                </div>
-              </div>
-
-              <div className="value-point">
-                <span>03</span>
-                <div>
-                  <h3>دعم السياحة اليمنية</h3>
-                  <p>إبراز الوجهات والمعالم اليمنية للعالم.</p>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
         {/* ================= TEAM ================= */}
-        <section id="team" className="team-section section">
+        <section id="team" className="section team-section">
+
           <div className="container">
-            <div className="team-heading">
+
+            <div className="section-header">
+
               <div>
-                <span className="eyebrow">THE TEAM</span>
+                <span className="section-number">11</span>
+                <span className="section-label">
+                  فريق المشروع
+                </span>
+
                 <h2>
-                  وراء الفكرة
+                  وراء يمن ترحال
                   <br />
-                  <span>فريق يؤمن بها.</span>
+                  <span>فريق المشروع.</span>
                 </h2>
               </div>
 
-              <div className="team-count">
-                <strong>07</strong>
-                <span>أعضاء<br />الفريق</span>
-              </div>
+              <p>
+                أسماء فريق مشروع التخرج.
+              </p>
+
             </div>
-{/* =========================
-    المشرف الأكاديمي
-========================= */}
-<section className="supervisor-section" id="supervisor">
 
-  <div className="section-heading">
-    <span className="section-kicker">ACADEMIC SUPERVISOR</span>
-
-    <h2>
-      المشرف <span>الأكاديمي</span>
-    </h2>
-
-    <p>
-      بإشراف أكاديمي متخصص، تم تطوير مشروع يمن ترحال
-      ليجمع بين التقنية والذكاء الاصطناعي والسياحة الرقمية.
-    </p>
-  </div>
-
-
-  <div className="supervisor-single-card">
-
-    <div className="supervisor-photo-area">
-
-      <div className="supervisor-photo-glow"></div>
-
-      <img
-        src="/images/supervisor2.jfif"
-        alt="المشرف الأكاديمي"
-        className="supervisor-photo"
-      />
-
-      <div className="supervisor-photo-badge">
-        ★ المشرف الأكاديمي
-      </div>
-
-    </div>
-
-
-    <div className="supervisor-content">
-
-      <span className="supervisor-label">
-        PROJECT SUPERVISOR
-      </span>
-
-      <h3>
-        د. اسم المشرف
-      </h3>
-
-      <p className="supervisor-title">
-        أستاذ / دكتور — التخصص
-      </p>
-
-      <p className="supervisor-text">
-        المشرف الأكاديمي على مشروع يمن ترحال،
-        والمساهم في توجيه الفريق والإشراف على تطوير
-        المشروع من الناحية الأكاديمية والتقنية.
-      </p>
-
-      <div className="supervisor-divider"></div>
-
-      <div className="supervisor-footer">
-        <span>YEMEN TARHAL</span>
-        <span>GRADUATION PROJECT • 2026</span>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
             <div className="team-grid">
-              {team.map((member) => (
-                <article className="team-card" key={member.name}>
+
+              {team.map((member, index) => (
+                <div className="team-card" key={member}>
+
                   <div className="team-avatar">
-                    <span>{member.number}</span>
-                    <div className="avatar-symbol">YT</div>
+                    {String(index + 1).padStart(2, "0")}
                   </div>
 
-                  <div className="team-info">
-                    <small>{member.role}</small>
-                    <h3>{member.name}</h3>
+                  <div>
+                    <small>فريق المشروع</small>
+                    <h3>{member}</h3>
                   </div>
 
-                  <span className="team-arrow">↗</span>
-                </article>
+                </div>
               ))}
+
             </div>
+
+          </div>
+        </section>
+
+        {/* ================= SUPERVISOR ================= */}
+        <section className="section supervisor-section">
+
+          <div className="container">
+
+            <div className="supervisor-card">
+
+              <div className="supervisor-photo-area">
+
+                <div className="supervisor-photo-glow"></div>
+
+                <img
+                  src="/images/supervisor2.jfif"
+                  alt="المشرف الأكاديمي"
+                  className="supervisor-photo"
+                />
+
+              </div>
+
+              <div className="supervisor-content">
+
+                <span className="section-label">
+                  المشرف الأكاديمي
+                </span>
+
+                <h2>
+                  بإشراف
+                  <span> أكاديمي.</span>
+                </h2>
+
+                <p>
+                  بإشراف أكاديمي متخصص، تم تطوير مشروع يمن ترحال
+                  ليجمع بين التقنية والذكاء الاصطناعي والسياحة الرقمية.
+                </p>
+
+                <div className="supervisor-name">
+                  <small>PROJECT SUPERVISOR</small>
+
+                  <h3>
+                    د. اسم المشرف
+                  </h3>
+
+                  <p>
+                    أستاذ / دكتور — التخصص
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
         </section>
 
         {/* ================= VISION ================= */}
-        <section id="vision" className="vision-section">
-          <div className="vision-image"></div>
-          <div className="vision-overlay"></div>
+        <section id="vision" className="section vision-section">
 
-          <div className="container vision-content">
-            <span className="eyebrow">THE FUTURE</span>
+          <div className="container">
 
-            <h2>
-              من اليمن
-              <br />
-              <em>إلى العالم.</em>
-            </h2>
+            <div className="vision-content">
 
-            <p>
-              رؤيتنا أن يصبح يمن ترحال المنصة الوطنية الأولى للسفر والسياحة
-              والعلاج في اليمن، وأن تتوسع مستقبلًا لخدمة المسافرين في المنطقة
-              العربية.
-            </p>
+              <span className="section-number">12</span>
+              <span className="section-label">
+                الرؤية المستقبلية
+              </span>
 
-            <div className="vision-line">
-              <span></span>
-              <strong>YEMEN TARHAL · 2026</strong>
-              <span></span>
+              <h2>
+                من اليمن
+                <br />
+                <span>إلى العالم.</span>
+              </h2>
+
+              <p>
+                أن يصبح يمن ترحال المنصة الوطنية الأولى للسفر
+                والسياحة والعلاج في اليمن، مع إمكانية التوسع
+                مستقبلًا لخدمة المسافرين في المنطقة العربية.
+              </p>
+
+              <div className="vision-line">
+                <span></span>
+                <strong>YEMEN TARHAL · 2026</strong>
+                <span></span>
+              </div>
+
             </div>
+
           </div>
         </section>
+
       </main>
 
       {/* ================= FOOTER ================= */}
       <footer className="footer">
-        <div className="container">
-          <div className="footer-top">
-            <div className="footer-brand">
-              <div className="brand footer-brand-mark">
-                <span className="brand-symbol">
-                  <span className="brand-symbol-ring"></span>
-                  <span className="brand-symbol-plane">✦</span>
-                </span>
 
-                <span className="brand-text">
+        <div className="container">
+
+          <div className="footer-top">
+
+            <div className="footer-brand">
+
+              <div className="footer-logo">
+                <span>YT</span>
+
+                <div>
                   <strong>يمن ترحال</strong>
                   <small>YEMEN TARHAL</small>
-                </span>
+                </div>
               </div>
 
               <p>
-                منصة رقمية ذكية تجمع السفر والسياحة والعلاج في تجربة واحدة.
+                منصة رقمية ذكية تجمع جميع خدمات السفر والسياحة
+                والعلاج داخل اليمن وخارجها في مكان واحد.
               </p>
+
             </div>
 
             <div className="footer-links">
+
               <div>
-                <small>EXPLORE</small>
+                <strong>استكشف</strong>
+
                 <button onClick={() => scrollToSection("about")}>
                   عن المشروع
                 </button>
+
                 <button onClick={() => scrollToSection("services")}>
                   الخدمات
                 </button>
+
                 <button onClick={() => scrollToSection("ai")}>
                   السياحة الذكية
                 </button>
               </div>
 
               <div>
-                <small>PROJECT</small>
+                <strong>المشروع</strong>
+
                 <button onClick={() => scrollToSection("technology")}>
                   التقنيات
                 </button>
-                <button onClick={() => scrollToSection("team")}>الفريق</button>
+
+                <button onClick={() => scrollToSection("team")}>
+                  الفريق
+                </button>
+
                 <button onClick={() => scrollToSection("vision")}>
                   الرؤية
                 </button>
               </div>
+
             </div>
+
           </div>
 
           <div className="footer-bottom">
-            <span>© 2026 Yemen Tarhal. Graduation Project.</span>
 
-            <span className="footer-made">
-              MADE WITH <b>✦</b> IN YEMEN
+            <span>
+              © 2026 Yemen Tarhal. Graduation Project.
             </span>
 
             <button
-              className="back-top"
               onClick={() => scrollToSection("home")}
+              className="back-top"
             >
               ↑
             </button>
+
           </div>
+
         </div>
+
       </footer>
+
     </div>
   );
 }
